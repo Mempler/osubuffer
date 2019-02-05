@@ -2,6 +2,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#define OSUBUFFER_EXPORT
+
 #include <buffer.h>
 
 buffer* make_buffer() {
