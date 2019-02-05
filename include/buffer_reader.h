@@ -9,7 +9,7 @@ OSUBUFFER_API typedef struct {
     size __pos;
 } buffer_reader;
 
-buffer_reader* make_reader(buffer* buffer);
+OSUBUFFER_API buffer_reader* make_reader(buffer* buffer);
 
 OSUBUFFER_API i8 read_i8(buffer_reader* reader);
 OSUBUFFER_API ui8 read_ui8(buffer_reader* reader);
