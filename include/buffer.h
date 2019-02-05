@@ -42,7 +42,7 @@ OSUBUFFER_API void append(buffer* buff, size len);
 OSUBUFFER_API void write_i8(buffer* buff,        i8 b);
 OSUBUFFER_API void write_ui8(buffer* buff,       ui8 b);
 OSUBUFFER_API void write_i16(buffer* buff,       i16 b);
-OSUBUFFER_API void write_ui16(buffer* buff,       ui16 b);
+OSUBUFFER_API void write_ui16(buffer* buff,      ui16 b);
 OSUBUFFER_API void write_i32(buffer* buff,       i32 b);
 OSUBUFFER_API void write_ui32(buffer* buff,      ui32 b);
 OSUBUFFER_API void write_i64(buffer* buff,       i64 b);
