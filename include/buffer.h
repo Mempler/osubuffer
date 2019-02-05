@@ -1,33 +1,7 @@
 #ifndef OSUBUFFER_BUFFER_H
 #define OSUBUFFER_BUFFER_H
 
-#ifdef OSUBUFFER_DLL
-    #ifdef OSUBUFFER_EXPORT
-        #define OSUBUFFER_API __declspec(dllexport)
-    #else
-        #define OSUBUFFER_API __declspec(dllimport)
-    #endif
-#else
-#define OSUBUFFER_API
-#endif
-
-typedef unsigned char ui8;
-typedef char i8;
-
-typedef unsigned short ui16;
-typedef short i16;
-
-typedef unsigned int ui32;
-typedef int i32;
-
-typedef unsigned long long ui64;
-typedef long long i64;
-
-typedef ui64 uleb128;
-
-typedef unsigned int size;
-
-#define nil (void*)0
+#include "core.h"
 
 OSUBUFFER_API typedef struct {
     ui8* __data;
@@ -50,6 +24,7 @@ OSUBUFFER_API void write_ui64(buffer* buff,      ui64 b);
 OSUBUFFER_API void write_float(buffer* buff,     float b);
 OSUBUFFER_API void write_double(buffer* buff,    double b);
 OSUBUFFER_API void write_uleb128(buffer* buff,   uleb128 b);
+OSUBUFFER_API void write_i32_arr(buffer* buff,   i32* b, size len);
 OSUBUFFER_API void write_cstring(buffer* buff, const char* b, size str_len);
 OSUBUFFER_API void write_osustring(buffer* buff, const char* b, size str_len, ui8 nullable);
 

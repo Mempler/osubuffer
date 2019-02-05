@@ -16,10 +16,6 @@ buffer* make_buffer() {
     return buff;
 }
 
-int isInRange(buffer* buff, size len) {
-    return buff->__pos + len > buff->__size;
-}
-
 void append(buffer* buff, size len) {
     buff->__data = realloc(buff->__data, buff->__size + len);
     buff->__size += len;
@@ -101,9 +97,16 @@ void write_uleb128(buffer* buff,  uleb128 b) {
     } while(b > 0);
 }
 
+void write_i32_arr(buffer* buff, i32* b, size len) {
+    write_i16(buff, (i16) len);
+    for (size i = 0; i < len; ++i) {
+        write_i32(buff, b[i]);
+    }
+}
+
 void write_cstring(buffer* buff, const char* b, size str_len) {
     append(buff, str_len);
-    memcpy(buff->__data + buff->__pos, &b, str_len);
+    memcpy(buff->__data + buff->__pos, b, str_len);
     buff->__pos += str_len;
 }
 
@@ -133,5 +136,5 @@ void print_buffer(buffer* buff) {
     for (size i = 0; i < buff->__size; ++i) {
         printf(" %d", buff->__data[i]);
     }
-    printf(" }");
+    printf(" }\n");
 }
