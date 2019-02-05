@@ -106,12 +106,16 @@ void write_cstring(buffer* buff, const char* b, size str_len) {
 }
 
 void write_osustring(buffer* buff, const char* b, size str_len, ui8 nullable) {
-    if (nullable && b == nil)
-        return write_ui8(buff, 0);
+    if (nullable && b == nil){
+        write_ui8(buff, 0);
+        return;
+    }
 
     write_ui8(buff, 0x0b);
-    if (str_len <= 0)
-        return write_ui8(buff, 0);
+    if (str_len <= 0) {
+        write_ui8(buff, 0);
+        return;
+    }
     write_uleb128(buff, str_len);
 
     write_cstring(buff, b, str_len);
