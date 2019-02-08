@@ -171,3 +171,7 @@ const char* read_osustring(buffer_reader* reader) {
     size len = (size) read_uleb128(reader);
     return read_cstring(reader, len);
 }
+
+OSUBUFFER_API void free_reader(buffer_reader* reader) {
+    free(reader);
+}

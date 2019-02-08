@@ -25,4 +25,6 @@ OSUBUFFER_API uleb128 read_uleb128(buffer_reader* reader);
 OSUBUFFER_API const char* read_cstring(buffer_reader* reader, size len);
 OSUBUFFER_API const char* read_osustring(buffer_reader* reader);
 
+OSUBUFFER_API void free_reader(buffer_reader* reader);
+
 #endif //OSUBUFFER_BUFFER_READER_H
